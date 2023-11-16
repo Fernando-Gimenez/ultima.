@@ -1,0 +1,32 @@
+<html>
+  {% extends "inicio.html" %} 
+  {% block principal %} 
+  <body class="no-background"> 
+</body>
+  <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+        <title>RESERVA</title>
+    </head>
+    <body>
+    <h1 class="text-center">
+        RESERVE O BANHO DO SEU PET!
+    </h1>
+
+    <div class="container">
+
+      {% if sucesso %}
+      <div class="alert alert-success" role="alert">
+        O banho foi Reservado com Sucesso!
+      </div>
+      {% else %}
+      <form method="post" action="">
+        {% csrf_token %}
+        {% load bootstrap5 %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">Reservar</button>
+      </form>
+      {% endif %}
+    </div>
+    </body>
+  {% endblock %}
+</html>
